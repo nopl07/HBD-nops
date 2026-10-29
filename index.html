@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Her Special Day</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500;1,700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="fx"></canvas>
+
+<!-- 1. HITUNG MUNDUR -->
+<section class="scene" id="s0">
+  <p class="tag">Menghitung hari</p>
+  <h1>Her Special Day<br>is Coming</h1>
+  <p class="sub">Sesuatu yang indah sedang menunggu untukmu 💗</p>
+  <div class="cd">
+    <div class="box"><b>00</b><small>Hari</small></div>
+    <div class="box"><b>00</b><small>Jam</small></div>
+    <div class="box"><b>00</b><small>Menit</small></div>
+    <div class="box"><b>00</b><small>Detik</small></div>
+  </div>
+  <button class="btn" id="wait" disabled>Tunggu sampai waktunya</button>
+  <button class="btn go" id="open" hidden>Hari ini hari spesialmu! Buka!</button>
+</section>
+
+<!-- 2. HADIAH -->
+<section class="scene" id="s1">
+  <p class="tag">Ada sesuatu untukmu</p>
+  <button id="gift" aria-label="Buka hadiah">🎁</button>
+  <p class="sub">Klik untuk membuka hadiahmu</p>
+</section>
+
+<!-- 3. PEMBUKA -->
+<section class="scene" id="s2">
+  <p class="tag">Sebuah ungkapan cinta untukmu</p>
+  <h1>Your Special Day</h1>
+  <p class="sub" id="introSub"></p>
+</section>
+
+<!-- 4. SURAT -->
+<section class="scene" id="s3">
+  <h2>Happy Birthday</h2>
+  <div class="card" id="letter" aria-live="polite"></div>
+  <button class="btn" id="toMem" hidden>Our Memories</button>
+</section>
+
+<!-- 5. GALERI -->
+<section class="scene" id="s4">
+  <h2>Our Memories</h2>
+  <p class="sub">Setiap momen yang tersimpan</p>
+  <div class="grid" id="grid"></div>
+  <button class="btn" id="toVid">Tonton video</button>
+</section>
+
+<!-- 6. VIDEO -->
+<section class="scene" id="s5">
+  <h2>A Moment For You</h2>
+  <p class="sub">Best memories</p>
+  <div class="player" id="player"></div>
+  <button class="btn" id="toWish">NEXT?</button>
+</section>
+
+<!-- 7. UCAPAN -->
+<section class="scene" id="s6">
+  <div class="card c"><h2 style="margin-bottom:1rem">Birthday Wishes</h2><p id="wishes"></p></div>
+  <button class="btn" id="toEnd">Satu hal lagi</button>
+</section>
+
+<!-- 8. PENUTUP -->
+<section class="scene" id="s7">
+  <h1 id="final"></h1>
+  <p class="sub" id="closing"></p>
+  <button class="btn" id="replay">Ulangi lagi?</button>
+</section>
+
+<button class="btn" id="mus" hidden aria-pressed="false">♪ Musik</button>
+
+<script src="script.js"></script>
+</body>
+</html>

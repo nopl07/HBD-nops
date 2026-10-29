@@ -1,0 +1,58 @@
+/* ===== 1. WARNA & DASAR ===== */
+:root{--bg1:#4d0b39;--bg2:#d20d90;--pink:#ff98bc;--glow:#ffd6e4;--text:#f3e6ee;--glass:rgba(255,255,255,.07)}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden;background:radial-gradient(ellipse at 30% 20%,var(--bg2),var(--bg1) 70%);color:var(--text);font-family:'Cormorant Garamond',Georgia,serif}
+#fx{position:fixed;inset:0;z-index:0}
+
+/* ===== 2. ADEGAN (satu layar = satu .scene) ===== */
+.scene{position:fixed;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:safe center;gap:1.2rem;padding:1.5rem;text-align:center;opacity:0;visibility:hidden;transition:opacity .9s,visibility .9s;overflow-y:auto}
+.scene.on{opacity:1;visibility:visible}
+[hidden]{display:none!important}
+
+/* ===== 3. TEKS ===== */
+h1,h2{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:700;color:var(--glow);text-shadow:0 0 24px rgba(249, 187, 209, 0.55)}
+h1{font-size:clamp(2.2rem,8vw,4.2rem);line-height:1.15}
+h2{font-size:clamp(1.8rem,6vw,2.8rem)}
+.tag{font-size:.8rem;letter-spacing:.3em;color:var(--pink);color: #eeeaed;}
+.sub{font-size:clamp(1rem,3.5vw,1.25rem);opacity:.85}
+
+/* ===== 4. TOMBOL & KARTU KACA ===== */
+.btn{font:600 .85rem 'Cormorant Garamond',serif;letter-spacing:.18em;color:var(--glow);background:var(--glass);border:1px solid rgba(247,168,196,.5);border-radius:99px;padding:.8rem 1.6rem;cursor:pointer;backdrop-filter:blur(8px);transition:.3s}
+.btn:hover:not(:disabled){background:var(--pink);color:#2a1030;box-shadow:0 0 24px var(--pink)}
+.btn:disabled{opacity:.55;cursor:default}
+.btn.go{background:var(--pink);color:#2a1030;animation:pulse 1.8s infinite}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+@keyframes pulse{50%{box-shadow:0 0 28px var(--pink)}}
+.card{max-width:640px;width:100%;background:var(--glass);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:1.6rem;backdrop-filter:blur(14px);text-align:left;line-height:1.65;font-size:clamp(1.05rem,3.6vw,1.25rem)}
+.card p+p{margin-top:1rem}
+.card.c{text-align:center}
+
+/* ===== 5. HITUNG MUNDUR ===== */
+.cd{display:flex;gap:.7rem}
+.box{width:clamp(64px,19vw,92px);padding:.9rem 0;background:var(--glass);border:1px solid rgba(247,168,196,.35);border-radius:12px}
+.box b{display:block;font:700 clamp(1.7rem,6vw,2.4rem) 'Playfair Display',serif}
+.box small{font-size:.7rem;letter-spacing:.15em;opacity:.75}
+
+/* ===== 6. HADIAH ===== */
+#gift{font-size:clamp(4.5rem,18vw,7rem);background:none;border:0;cursor:pointer;filter:drop-shadow(0 0 28px var(--pink));animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-12px) scale(1.05)}}
+
+/* ===== 7. POLAROID ===== */
+.pol{background:#f6f0e8;padding:7px 7px 24px;border-radius:2px;box-shadow:0 8px 24px rgba(0,0,0,.45);transform:rotate(var(--r,0deg));transition:transform .3s}
+.pol:hover{transform:rotate(0) scale(1.05)}
+.pol img,.pol i{display:block;width:100%;aspect-ratio:1/1.1;object-fit:cover;background:linear-gradient(135deg,#c78fb0,#6c4a8c);font-style:normal;text-align:center;line-height:6rem;font-size:1.8rem}
+.corner{position:absolute;width:clamp(70px,16vw,110px)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:1.1rem;width:min(900px,100%)}
+
+/* ===== 8. PEMUTAR VIDEO ===== */
+.player{width:min(560px,100%);background:#000;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.15)}
+.player video{display:block;width:100%;aspect-ratio:16/9;background:#150a20}
+.ctrl{display:flex;align-items:center;gap:.7rem;padding:.5rem .8rem;background:#120819;font-size:.95rem}
+.ctrl button{background:none;border:0;color:var(--glow);font-size:1.1rem;cursor:pointer}
+.ctrl input{flex:1;accent-color:var(--pink)}
+.note{padding:2.5rem 1rem;color:var(--pink)}
+
+/* ===== 9. PENUTUP & WIDGET MUSIK ===== */
+#final{min-height:1.3em;transition:opacity .6s}
+#mus{position:fixed;right:14px;bottom:14px;z-index:5;padding:.5rem 1rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
